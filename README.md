@@ -24,7 +24,6 @@ Portal provides three modules for different use cases:
 
 - **PortalTransitions** — Animate views between navigation contexts (sheets, navigation stacks, tabs) using a floating overlay layer. Uses standard SwiftUI APIs.
 - **PortalHeaders** — Scroll-based header transitions that flow into the navigation bar, like Music or Photos. Uses iOS 18's advanced scroll tracking APIs.
-- **_PortalPrivate** — True view mirroring using Apple's private `_UIPortalView` API. The view instance is shared rather than recreated.
 
 
 ## Installation
@@ -39,9 +38,6 @@ dependencies: [
 |--------|-------------|
 | `PortalTransitions` | Element transitions (iOS 17+) |
 | `PortalHeaders` | Flowing headers (iOS 18+) |
-| `_PortalPrivate` | View mirroring with private API |
-
-> Targeting iOS 15/16? Pin to `v2.1.0` or the `legacy/ios15` branch.
 
 
 ## Usage
@@ -89,16 +85,6 @@ NavigationStack {
 .portalHeader(title: "Favorites", subtitle: "Your starred items")
 ```
 
-### Private API Mirroring
-
-> **WARNING: Private API Usage**
->
-> This module uses Apple's private `_UIPortalView` API. Apps using private APIs **may be rejected by App Store Review**. Use at your own discretion. Portal, Aether, and any maintainers assume no responsibility for App Store rejections, app crashes, or any other issues arising from the use of this module.
-
-Same API as PortalTransitions, but uses Apple's private `_UIPortalView` for true view mirroring instead of layer snapshots. The view instance is shared rather than recreated.
-
-Class names are obfuscated at compile-time. See the [docs](docs/PortalPrivate.md) for details.
-
 
 ## Customization
 
@@ -137,18 +123,16 @@ PortalTransitions creates a transparent `PassThroughWindow` that sits above your
 
 PortalHeaders tracks scroll position using iOS 18's `ScrollGeometry` and interpolates between inline and navigation bar states based on content offset thresholds.
 
-_PortalPrivate wraps Apple's private `_UIPortalView` class, which creates a portal to another view's layer. Class names are obfuscated at compile-time to avoid detection. See [UIPortalBridge](https://github.com/Aeastr/UIPortalBridge) for a standalone wrapper.
-
 
 ## Examples
 
 Each module includes working examples in `Sources/*/Examples/`:
 
-| PortalTransitions | PortalHeaders | _PortalPrivate |
-|:---|:---|:---|
-| [Card Grid](Sources/PortalTransitions/Examples/PortalExampleCardGrid.swift) | [With Accessory](Sources/PortalHeaders/Examples/PortalHeaderExampleWithAccessory.swift) | [Card Grid](Sources/_PortalPrivate/Transitions/Examples/PortalPrivateExampleCardGrid.swift) |
-| [List](Sources/PortalTransitions/Examples/PortalExampleList.swift) | [Title Only](Sources/PortalHeaders/Examples/PortalHeaderExampleTitleOnly.swift) | [List](Sources/_PortalPrivate/Transitions/Examples/PortalPrivateExampleList.swift) |
-| [Grid Carousel](Sources/PortalTransitions/Examples/PortalExampleGridCarousel.swift) | [No Accessory](Sources/PortalHeaders/Examples/PortalHeaderExampleNoAccessory.swift) | [Comparison](Sources/_PortalPrivate/Transitions/Examples/PortalPrivateExampleComparison.swift) |
+| PortalTransitions | PortalHeaders |
+|:---|:---|
+| [Card Grid](Sources/PortalTransitions/Examples/PortalExampleCardGrid.swift) | [With Accessory](Sources/PortalHeaders/Examples/PortalHeaderExampleWithAccessory.swift) |
+| [List](Sources/PortalTransitions/Examples/PortalExampleList.swift) | [Title Only](Sources/PortalHeaders/Examples/PortalHeaderExampleTitleOnly.swift) |
+| [Grid Carousel](Sources/PortalTransitions/Examples/PortalExampleGridCarousel.swift) | [No Accessory](Sources/PortalHeaders/Examples/PortalHeaderExampleNoAccessory.swift) |
 
 
 ## Documentation

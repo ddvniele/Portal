@@ -13,13 +13,9 @@ let package = Package(
         .library(
             name: "PortalHeaders",
             targets: ["PortalHeaders"]),
-        .library(
-            name: "_PortalPrivate",
-            targets: ["_PortalPrivate"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Aeastr/Chronicle.git", from: "3.0.1"),
-        .package(url: "https://github.com/Aeastr/UIPortalBridge.git", from: "1.0.0")
+        .package(url: "https://github.com/Aeastr/Chronicle.git", from: "3.0.1")
     ],
     targets: [
         .target(
@@ -38,14 +34,6 @@ let package = Package(
             ],
             path: "Sources/PortalHeaders"
         ),
-        .target(
-            name: "_PortalPrivate",
-            dependencies: [
-                "PortalTransitions",
-                .product(name: "UIPortalBridge", package: "UIPortalBridge")
-            ],
-            path: "Sources/_PortalPrivate"
-        ),
         .testTarget(
             name: "PortalHeadersTests",
             dependencies: ["PortalHeaders"],
@@ -55,11 +43,6 @@ let package = Package(
             name: "PortalTransitionsTests",
             dependencies: ["PortalTransitions"],
             path: "Tests/PortalTransitionsTests"
-        ),
-        .testTarget(
-            name: "_PortalPrivateTests",
-            dependencies: ["_PortalPrivate"],
-            path: "Tests/_PortalPrivateTests"
         ),
     ]
 )

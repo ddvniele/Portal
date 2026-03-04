@@ -26,16 +26,6 @@ Scroll-based header transitions that flow into the navigation bar, similar to Mu
 
 Start with [Basic Usage](PortalHeaders/BasicUsage.md) to create a flowing header.
 
-### _PortalPrivate
-
-Same API as PortalTransitions, but uses Apple's private `_UIPortalView` for true view mirroring instead of layer snapshots.
-
-- **iOS 17+**
-- Uses private UIKit API (obfuscated)
-- **May be rejected by App Store Review**
-
-See [Overview](PortalPrivate.md) for usage and important disclaimers.
-
 ## Installation
 
 ```swift
@@ -49,7 +39,6 @@ Then import the module you need:
 ```swift
 import PortalTransitions  // Element transitions
 import PortalHeaders      // Flowing headers
-import _PortalPrivate     // View mirroring (private API)
 ```
 
 ## Quick Links
@@ -89,7 +78,3 @@ import _PortalPrivate     // View mirroring (private API)
 
 #### Development
 - [Debug Overlays](PortalHeaders/DebugOverlays.md)
-
-### _PortalPrivate
-
-- [Overview](PortalPrivate.md)
