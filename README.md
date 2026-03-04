@@ -30,7 +30,7 @@ Portal provides three modules for different use cases:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Aeastr/Portal.git", from: "4.0.0")
+    .package(url: "https://github.com/ddvniele/Portal.git", from: "4.0.0")
 ]
 ```
 
@@ -148,17 +148,3 @@ Contributions welcome. See the [Contributing Guide](CONTRIBUTING.md) for details
 ## License
 
 MIT. See [LICENSE](LICENSE.md) for details.
-
-
-## Related
-
-- [UIPortalBridge](https://github.com/Aeastr/UIPortalBridge) - Standalone wrapper for `_UIPortalView`
-- [Transmission](https://github.com/nathantannar4/Transmission) - UIKit-backed presentation and transitions for SwiftUI
-
-
-## Contact
-
-- [Twitter](https://x.com/AetherAurelia)
-- [Threads](https://www.threads.net/@aetheraurelia)
-- [Bluesky](https://bsky.app/profile/aethers.world)
-- [LinkedIn](https://www.linkedin.com/in/willjones24)
